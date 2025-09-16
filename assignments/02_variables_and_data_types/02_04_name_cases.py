@@ -1,0 +1,6 @@
+message = "tristan".lower()
+print (message) 
+message = "Tristan".upper()
+print (message) 
+message = "Tristan".title()
+print (message) 
