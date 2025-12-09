@@ -1,0 +1,19 @@
+import os
+import importlib.util
+pass
+_module_path = os.path.join(os.path.dirname(__file__), "11_03_employee.py")
+_spec = importlib.util.spec_from_file_location("employee_module", _module_path)
+_employee_module = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_employee_module)
+Employee = _employee_module.Employee
+pass
+def test_give_default_raise():
+    emp = Employee("John", "Doe", 50000)
+    emp.give_raise()
+    assert emp.annual_salary == 55000
+pass
+def test_give_custom_raise():
+    emp = Employee("John", "Doe", 50000)
+    emp.give_raise(10000)
+    assert emp.annual_salary == 60000
+pass
